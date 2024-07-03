@@ -1,0 +1,8 @@
+.venv
+.env
+venv
+env
+migrations
+.idea
+__pycache__
+db.sqlite3

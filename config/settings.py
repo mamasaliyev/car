@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'catalog',
     'connection',
     'news_about',
-    'slider_credit',]
+    'slider_credit',
+    'users',
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

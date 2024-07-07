@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class UsersConfig(AppConfig):
+class NewsAboutConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'users'
+    name = 'apps.news_about'

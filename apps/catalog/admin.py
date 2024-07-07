@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from catalog.models import Logo, Car, Contract
+from apps.catalog.models import Logo, Car, Contract
 
 admin.site.register(Logo)
 admin.site.register(Car)

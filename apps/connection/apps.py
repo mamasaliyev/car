@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class SliderCreditConfig(AppConfig):
+class ConnectionConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'slider_credit'
+    name = 'apps.connection'

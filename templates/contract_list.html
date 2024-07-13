@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contract List</title>
+</head>
+<body>
+    <h1>Contract List</h1>
+    <ul>
+        {% for contract in contracts %}
+            <li><a href="{% url 'contract_detail' contract.id %}">{{ contract.month }} - {{ contract.year }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'contract_create' %}">Create new contract</a>
+</body>
+</html>

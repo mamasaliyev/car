@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Logo</title>
+</head>
+<body>
+    <h1>Delete Logo</h1>
+    <p>Are you sure you want to delete "{{ logo.title }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm</button>
+    </form>
+    <a href="{% url 'logo_list' %}">Cancel</a>
+</body>
+</html>

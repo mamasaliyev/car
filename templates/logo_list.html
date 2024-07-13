@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logo List</title>
+</head>
+<body>
+    <h1>Logo List</h1>
+    <ul>
+        {% for logo in logos %}
+            <li><a href="{% url 'logo_detail' logo.id %}">{{ logo.title }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'logo_create' %}">Create new logo</a>
+</body>
+</html>

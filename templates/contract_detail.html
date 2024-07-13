@@ -1,0 +1,16 @@
+!DOCTYPE html>
+<html>
+<head>
+    <title>{{ contract.month }} - {{ contract.year }}</title>
+</head>
+<body>
+    <h1>{{ contract.month }} - {{ contract.year }}</h1>
+    <br>
+    <a href="{% url 'contract_update' contract.id %}">Update</a>
+    <form method="post" action="{% url 'contract_delete' contract.id %}">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'contract_list' %}">Back to list</a>
+</body>
+</html>

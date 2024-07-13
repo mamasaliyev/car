@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ car.title }}</title>
+</head>
+<body>
+    <h1>{{ car.title }}</h1>
+    <p>{{ car.description }}</p>
+    <p>{{ car.km }} km</p>
+    <p>{{ car.year }}</p>
+    <p>{{ car.price }}</p>
+    <p>{{ car.color }}</p>
+    <img src="{{ car.image.url }}" alt="{{ car.title }}">
+    <img src="{{ car.logo.url }}" alt="Logo">
+    <br>
+    <a href="{% url 'car_update' car.id %}">Update</a>
+    <form method="post" action="{% url 'car_delete' car.id %}">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'car_list' %}">Back to list</a>
+</body>
+</html>

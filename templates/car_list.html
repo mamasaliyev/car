@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car List</title>
+</head>
+<body>
+    <h1>Car List</h1>
+    <ul>
+        {% for car in cars %}
+            <li><a href="{% url 'car_detail' car.id %}">{{ car.title }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'car_create' %}">Create new car</a>
+</body>
+</html

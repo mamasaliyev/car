@@ -1,9 +1,17 @@
 from django.urls import path
+from rest_framework.routers import DefaultRouter
+
 from .views import (
     LogoListView, LogoDetailView, LogoCreateView, LogoUpdateView, LogoDeleteView,
     CarListView, CarDetailView, CarCreateView, CarUpdateView, CarDeleteView,
-    ContractListView, ContractDetailView, ContractCreateView, ContractUpdateView, ContractDeleteView
+    ContractListView, ContractDetailView, ContractCreateView, ContractUpdateView, ContractDeleteView, LogoViewSet,
+    CarViewSet, ContractViewSet,
+
 )
+router = DefaultRouter()
+router.register(r'logos', LogoViewSet)
+router.register(r'cars', CarViewSet)
+router.register(r'contracts', ContractViewSet)
 
 urlpatterns = [
 #Logo
@@ -26,4 +34,6 @@ urlpatterns = [
     path('contracts/create/', ContractCreateView.as_view(), name='contract_create'),
     path('contracts/<int:pk>/update/', ContractUpdateView.as_view(), name='contract_update'),
     path('contracts/<int:pk>/delete/', ContractDeleteView.as_view(), name='contract_delete'),
+
+
 ]

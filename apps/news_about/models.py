@@ -13,6 +13,10 @@ class News(AbstractBaseModel):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = 'News'
+        verbose_name_plural = 'News'
+
 
 class About(AbstractBaseModel):
     title = models.CharField(max_length=200)
@@ -21,3 +25,7 @@ class About(AbstractBaseModel):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'About'
+        verbose_name_plural = 'About'

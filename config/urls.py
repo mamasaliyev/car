@@ -7,6 +7,7 @@ from apps.users.views import UserAPIViewSet
 
 from config import settings
 from .yasg import urlpatterns as doc_urls
+from .views import HomePageView
 
 from apps.catalog.views import LogoViewSet, CarViewSet, ContractViewSet
 
@@ -19,6 +20,7 @@ router.register(r'contracts', ContractViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
+    path('', HomePageView.as_view(), name='home'),
     path('users/', include('apps.users.urls')),
     path('catalog/', include('apps.catalog.urls'))
 ]

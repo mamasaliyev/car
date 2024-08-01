@@ -8,6 +8,7 @@ class Logo(AbstractBaseModel):
     title = models.CharField(max_length=250)
     description = models.TextField()
     image = models.ImageField(upload_to='logos/')
+    object = models.Manager
 
     def __str__(self):
         return self.title
@@ -23,6 +24,7 @@ class Car(AbstractBaseModel):
     order = models.IntegerField()
     image = models.ImageField(upload_to='cars/')
     logo = models.ForeignKey(Logo, on_delete=SET_NULL, null=True)
+    objects = models.Manager
 
     def __str__(self):
         return self.title

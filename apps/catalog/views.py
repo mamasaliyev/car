@@ -1,4 +1,5 @@
 from django.urls import reverse_lazy
+from django.views import View
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Logo, Car, Contract
 from .forms import LogoForm, CarForm, ContractForm
@@ -10,7 +11,7 @@ from .serializer import LogoSerializer, CarSerializer, ContractSerializer
 # Logo Views
 class LogoListView(ListView):
     model = Logo
-    template_name = 'logo_list.html'
+    template_name = 'catalog/car_list.html'
     context_object_name = 'logos'
 
 
@@ -43,7 +44,7 @@ class LogoDeleteView(DeleteView):
 # Car Views
 class CarListView(ListView):
     model = Car
-    template_name = 'car_list.html'
+    template_name = 'catalog/car_list.html'
     context_object_name = 'cars'
 
 
@@ -119,3 +120,27 @@ class CarViewSet(viewsets.ModelViewSet):
 class ContractViewSet(viewsets.ModelViewSet):
     queryset = Contract.objects.all()
     serializer_class = ContractSerializer
+
+
+class SearchView(ListView):
+    template_name = 'catalog/car_list.html'
+    context_object_name = 'cars'
+
+    def get_queryset(self):
+        return Car.objects.filter(title__icontains=self.request.GET.get('q'))
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['q'] = self.request.GET.get('q')
+        return context
+
+
+class FilterView(View):
+    def get_queryset(self):
+        logo = Logo.objects.all()
+        queryset = Car.objects.filter(category=self.request.GET.get('category'))
+        return queryset
+
+    # def get(self):
+    #     cars = Car.objects.filter(category_id=self.kwargs['category_id'])
+    #     return cars

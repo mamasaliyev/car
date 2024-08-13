@@ -30,6 +30,7 @@ urlpatterns = [
     path('users/', include('apps.users.urls')),
     path('catalog/', include('apps.catalog.urls')),
     path('news_about/', include('apps.news_about.urls')),
+    path('connection/', include('apps.connection.urls')),
 ]
 urlpatterns += doc_urls
 
